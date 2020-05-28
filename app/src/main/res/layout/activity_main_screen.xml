@@ -127,7 +127,6 @@
         android:layout_height="30dp"
         android:background="@drawable/rounded_blue"
         android:padding="3dp"
-        android:password="false"
         android:text=""
         android:textAlignment="center"
         android:textColor="#ffffff"
@@ -144,20 +143,5 @@
         android:background="@drawable/gallery_vector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <!--    <ScrollView-->
-    <!--        android:layout_width="98dp"-->
-    <!--        android:layout_height="315dp"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent"-->
-    <!--        app:layout_constraintVertical_bias="1.0">-->
-
-    <!--        <LinearLayout-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:orientation="vertical" />-->
-    <!--    </ScrollView>-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

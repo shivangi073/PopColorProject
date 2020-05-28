@@ -9,19 +9,15 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.ImageFormat;
 import android.graphics.Rect;
 import android.graphics.YuvImage;
-import android.graphics.drawable.BitmapDrawable;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.hardware.Camera.ErrorCallback;
 import android.hardware.Camera.Parameters;
-import android.media.tv.TvContract;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.ContextThemeWrapper;
-import android.view.MotionEvent;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
@@ -35,12 +31,7 @@ import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.security.Policy;
 import java.util.List;
-
-
-
-//made by manpreet
 
 public class Main2Activity extends Activity implements Callback,OnClickListener , Camera.PreviewCallback{
 
@@ -59,14 +50,14 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
     TextView redtv,greentv, bluetv , hexcodetv ,tvcolor;
 
 
-    private static final int PERMISSION_REQUEST_CODE = 200;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
-
-      // camera surface view created
-        //surface view helps camera to be displayed on screen
+        /*
+         camera surface view created
+        surface view helps camera to be displayed on screen
+        */
         cameraId = CameraInfo.CAMERA_FACING_BACK;
         flipCamera = (Button) findViewById(R.id.flipCamera);
         flashCameraButton = (Button) findViewById(R.id.flash);
@@ -75,7 +66,7 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
         surfaceHolder = surfaceView.getHolder();//surface holder objects
         surfaceHolder.addCallback(this);
 
-        //listener buttons
+        /* listener buttons */
         flipCamera.setOnClickListener(this);
         flashCameraButton.setOnClickListener(this);
         captureImageButton.setOnClickListener(this);
@@ -87,7 +78,8 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
 
         tvcolor=findViewById(R.id.tv);
 
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);//to keep screen on until activity is going on
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        /* to keep screen on until activity is going on */
 
         if (Camera.getNumberOfCameras() > 1) {
             flipCamera.setVisibility(View.VISIBLE);
@@ -101,8 +93,10 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-        if (!openCamera(CameraInfo.CAMERA_FACING_BACK)) {//open the camera
-            //if camera permission not granted ask for permission
+        if (!openCamera(CameraInfo.CAMERA_FACING_BACK)) {/*
+            open the camera
+            if camera permission not granted ask for permission
+            */
             Intent intent = new Intent(Main2Activity.this,
                     MainScreenActivity.class);
             startActivity(intent);
@@ -116,14 +110,14 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
         camera.setParameters(parameters);
     }
 
-    // open the camera
+    /* open the camera */
     private boolean openCamera(int id) {
         boolean result = false;
         cameraId = id;
         releaseCamera();
         try {
             camera = Camera.open(cameraId);
-//            camera.setPreviewCallback(Main2Activity.this);
+            /* camera.setPreviewCallback(Main2Activity.this); */
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -155,7 +149,7 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
         return result;
     }
 
-    //this method manage rotation of camera
+    /* this method manage rotation of camera */
     private void setUpCamera(Camera c) {
         CameraInfo info = new CameraInfo();
         Camera.getCameraInfo(cameraId, info);
@@ -190,7 +184,7 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
         c.setDisplayOrientation(rotation);
         Parameters params = c.getParameters();
 
-        showFlashButton(params);//this manages flash
+        showFlashButton(params);/* this manages flash */
 
         List<String> focusModes = params.getSupportedFlashModes();
         if (focusModes != null) {
@@ -204,7 +198,7 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
     }
 
 
-    // this method manages flash
+    /* this method manages flash */
     private void showFlashButton(Parameters params) {
         boolean showFlash = (getPackageManager().hasSystemFeature(
                 PackageManager.FEATURE_CAMERA_FLASH) && params.getFlashMode() != null)
@@ -217,7 +211,8 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
     }
 
 
-    //this will stop whichever camera is running (back or front) and make the camera object null for further use.
+    /* this will stop whichever camera is running (back or front)
+        and make the camera object null for further use. */
     private void releaseCamera() {
         try {
             if (camera != null) {
@@ -252,14 +247,12 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
         camera.stopPreview();
-//        camera.release();
         releaseCamera();
-
         camera=null;
     }
 
     @Override
-    //this method responses when button is clicked
+    /* this method responses when button is clicked */
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.flash:
@@ -289,7 +282,7 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
         }
     }
 
-    //display an error if any occured whille opening front or back camera
+    //display an error if any occurred while opening front or back camera
     private void alertCameraDialog() {
 
         Builder dialog = createAlert(Main2Activity.this,"Camera info", "error to open camera");
@@ -333,11 +326,8 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
                     param.setFlashMode(Parameters.FLASH_MODE_OFF);
                     flashmode=false;
                 }
-
-//                param.setFlashMode(!flashmode ? Parameters.FLASH_MODE_TORCH
-//                        : Parameters.FLASH_MODE_OFF);
                 camera.setParameters(param);
-//                flashmode = !flashmode;
+
             } catch (Exception e) {
                 // TODO: handle exception
             }
@@ -346,7 +336,7 @@ public class Main2Activity extends Activity implements Callback,OnClickListener 
     }
 
 
-    //for color detection
+    /* for color detection */
     @Override
     public void onPreviewFrame(byte[] bytes, Camera camera) {
 

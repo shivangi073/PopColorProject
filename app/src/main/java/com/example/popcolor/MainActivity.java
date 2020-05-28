@@ -1,48 +1,20 @@
 package com.example.popcolor;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.FileProvider;
-//
-//import com.bumptech.glide.Glide;
-//import com.bumptech.glide.request.RequestOptions;
 import com.gun0912.tedpermission.PermissionListener;
 import com.gun0912.tedpermission.TedPermission;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -77,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds options to the action bar if it is present.
+        /* Inflate the menu this adds options to the action bar if it is present. */
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
@@ -97,9 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if (options[item].equals("Choose from Gallery"))
                 {
-                    // Intent imageFromGallery = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    //Intent imageFromGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    //startActivityForResult(imageFromGallery, 2);
+                    /*
+                     Intent imageFromGallery = new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    Intent imageFromGallery = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    startActivityForResult(imageFromGallery, 2);
+                    */
 
                     Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
                     getIntent.setType("image/*");
@@ -128,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
             if (requestCode == 1) {
                 if (data != null) {
                     Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                    // Passing BITMAP to the Second Activity
+                    /* Passing BITMAP to the Second Activity */
                     Intent IntentCamera = new Intent(this, ImageColours.class);
                     IntentCamera.putExtra("BitmapImage", bitmap);
                     startActivity(IntentCamera);

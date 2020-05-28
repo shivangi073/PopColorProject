@@ -18,9 +18,9 @@ public class ColorFinder {
         this.callback = callback;
     }
 
-    // main function which will be called from main class
+    /* main function which will be called from main class */
     public void findDominantColor(Bitmap bitmap) {
-        // find dominant color
+        /* find dominant color */
         new GetDominantColor().execute(bitmap);
     }
 
@@ -28,8 +28,10 @@ public class ColorFinder {
         int [] pixels = new int[bitmap.getWidth()*bitmap.getHeight()];
         bitmap.getPixels(pixels,0,bitmap.getWidth(),0,0, bitmap.getWidth(), bitmap.getHeight());
 
-        // pixelList is the map containing key as pixel and value as PixelObject
-        // It stores the frequency of each pixel.
+        /*
+         pixelList is the map containing key as pixel and value as PixelObject
+         It stores the frequency of each pixel.
+        */
         Map<float[], PixelObject> pixelList = new HashMap<>();
         for (int pixel : pixels) {
             float[] hsv = new float[3];
@@ -41,13 +43,13 @@ public class ColorFinder {
             }
         }
 
-        // allColourList contains the unique pixels in the picture
+        /* allColourList contains the unique pixels in the picture */
         allColorList = new ArrayList<>();
         for(float[] pixelhsv: pixelList.keySet()){
             allColorList.add(pixelList.get(pixelhsv));
         }
 
-        // returns the pixel with the maximum frequency in the pixelList map
+        /* returns the pixel with the maximum frequency in the pixelList map */
         return getDominantPixel(pixelList);
     }
 

@@ -1,16 +1,11 @@
 package com.example.popcolor;
 
-
-//made by manpreet
-
 import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,9 +32,11 @@ public class MainScreenActivity extends AppCompatActivity {
         bluetv=findViewById(R.id.bluetextView);
 
         if (checkPermission()) {
-            //main logic or main code
+            /*
+             main logic or main code
+             if permission already given open the camera
+            */
 
-            // if permission already given open the camera
             Intent intent = new Intent(MainScreenActivity.this, Main2Activity.class);
             startActivity(intent);
         } else {
@@ -49,17 +46,17 @@ public class MainScreenActivity extends AppCompatActivity {
 
     }
 
-    //to check if permission given to acess camera
+    /* to check if permission given to acess camera */
     private boolean checkPermission() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
                 != PackageManager.PERMISSION_GRANTED) {
-            // Permission is not granted
+            /* Permission is not granted */
             return false;
         }
         return true;
     }
 
-    //request for camera permission
+    /* request for camera permission */
     private void requestPermission() {
 
         ActivityCompat.requestPermissions(this,
@@ -74,11 +71,11 @@ public class MainScreenActivity extends AppCompatActivity {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getApplicationContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
 
-                    // after permission given start the camera
+                    /* after permission given start the camera */
                     Intent intent = new Intent(MainScreenActivity.this, Main2Activity.class);
                     startActivity(intent);
 
-                } else { //permission denied display need permissions
+                } else { /* permission denied display need permissions */
                     Toast.makeText(getApplicationContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)

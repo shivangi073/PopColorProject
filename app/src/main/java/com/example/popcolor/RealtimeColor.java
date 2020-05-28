@@ -7,7 +7,6 @@ import android.graphics.Rect;
 import android.graphics.YuvImage;
 import android.hardware.Camera;
 import android.os.Build;
-import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.Toast;
@@ -17,19 +16,14 @@ import androidx.annotation.RequiresApi;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import static android.graphics.ColorSpace.Model.RGB;
 
 
 public class RealtimeColor extends SurfaceView implements SurfaceHolder.Callback , Camera.PreviewCallback {
 
     RealtimeColor realtimeColor;
-
-
     SurfaceHolder surfaceHolder;
     Camera  mycamera=null;
     Camera.Size prevsize;
-
-
 
     public RealtimeColor(Context context) {
         super(context);
@@ -46,8 +40,6 @@ public class RealtimeColor extends SurfaceView implements SurfaceHolder.Callback
 
         Camera.Parameters parameters=mycamera.getParameters();
         prevsize=parameters.getPreviewSize();
-
-
     }
 
     @Override
@@ -65,14 +57,7 @@ public class RealtimeColor extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void onPreviewFrame(byte[] bytes, Camera camera) {
-//        gbuffer.loadPixels();
-//        decodeYUV420SP(gBuffer.pixels, data, prevSize.width, prevSize.height);
-//        gBuffer.updatePixels();
-//        image(gBuffer, 0, 0);
-
-
         Camera.Parameters parameters = camera.getParameters();
-
         ByteArrayOutputStream out = new ByteArrayOutputStream();
 
         YuvImage yuvImage = new YuvImage(bytes, parameters.getPreviewFormat(), parameters.getPreviewSize().width, parameters.getPreviewSize().height, null);

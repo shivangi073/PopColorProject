@@ -37,7 +37,7 @@ public class ImageColours extends AppCompatActivity {
         String imgPath = null;
         Bitmap bmp = null;
 
-        // Getting ImageURI from Gallery from Main Activity
+        /* Getting ImageURI from Gallery from Main Activity */
         Uri selectedImgUri = getIntent().getData();
         if (selectedImgUri != null) {
             Log.e("Gallery ImageURI", "" + selectedImgUri);
@@ -52,7 +52,7 @@ public class ImageColours extends AppCompatActivity {
             cursor.close();
         }
 
-        // Getting ImageBitmap from Camera from Main Activity
+        /* Getting ImageBitmap from Camera from Main Activity */
         Intent intent_camera = getIntent();
         if(intent_camera.hasExtra("BitmapImage")) {
             Bitmap camera_img_bitmap = (Bitmap) intent_camera.getParcelableExtra("BitmapImage");
@@ -148,12 +148,6 @@ public class ImageColours extends AppCompatActivity {
         return nImg;
     }
 }
-
-
-
-
-
-
 
 /*
         im = findViewById(R.id.imageView);
