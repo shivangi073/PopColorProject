@@ -3,7 +3,7 @@
 This repository consists of our Native Android App on Color Detection.We have developed it under our Amazon ACMS Campus Mentorship Program 2020. The major objective is to detect color using Camera API. 
 
 ## URL
-https://github.com/shivangi073/PopColor
+https://github.com/shivangi073/PopColorProject
 
 ### Team Members : Manpreet Kaur, Muskan Gupta , Shivangi Mishra , Shreya Bansal 
 
