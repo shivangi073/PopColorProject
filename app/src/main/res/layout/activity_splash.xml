@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    tools:context=".SplashActivity"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_margin="40dp"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/pc3"
+
+            />
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/title"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+
+<!--        android:fontFamily="cursive"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="POP - COLOR"-->
+<!--        android:textColor="#F2673AB7"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/title2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/title"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="POP - COLOR"-->
+<!--        android:textColor="#CE4255BD"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/title3"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/title2"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="POP - COLOR"-->
+<!--        android:textColor="#9C4CAF50"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/title4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/title3"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="POP - COLOR"-->
+<!--        android:textColor="#6DCDDC39"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/title5"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/title4"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="POP - COLOR"-->
+<!--        android:textColor="#9FFF5722"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold" />-->
+<!--    <TextView-->
+<!--        android:id="@+id/title6"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/title5"-->
+<!--        android:fontFamily="cursive"-->
+<!--        android:layout_centerHorizontal="true"-->
+<!--        android:text="POP - COLOR"-->
+<!--        android:textColor="#60F44336"-->
+<!--        android:textSize="40dp"-->
+<!--        android:textStyle="bold" />-->
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="We help you detect colors"
+        android:layout_centerHorizontal="true"
+        android:textColor="#C5C878"
+        android:textSize="20dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="casual"
+        android:textStyle="bold" />
+
+</RelativeLayout>
