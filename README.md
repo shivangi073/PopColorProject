@@ -1,4 +1,4 @@
-# PopColor - A Color Detection Android Application.
+# PopColor - A Real-Time Color Detection Android Application.
 
 This repository consists of our Native Android App on Color Detection.We have developed it under our Amazon ACMS Campus Mentorship Program 2020. The major objective is to detect color using Camera API. 
 
