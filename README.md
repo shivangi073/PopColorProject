@@ -10,3 +10,9 @@ https://github.com/shivangi073/PopColorProject
 ## Features:
 1. Real time Color Detection. 
 2. Color Detection in an image imported from gallery or captured from camera.
+
+
+## Screenshots of Real Time Color Detection
+![](images/screenshot1.jpeg)
+![](images/screenshot2.jpeg)
+![](images/screenshot3.jpeg)
